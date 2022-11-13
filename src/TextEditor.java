@@ -1,9 +1,9 @@
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
+import javax.swing.*;                                                   //for java swing to create frame
+import javax.swing.border.EmptyBorder;                                  // for frame setting border
+import java.awt.*;                                                      // to create GUI (Graphical User Interface)
+import java.awt.event.ActionEvent;                                      // for adding actions to the buttons
+import java.awt.event.ActionListener;                                   // for definig a button which needs to perform an action
+import java.io.*;                                                       // to take input in buffered manner
 
 public class TextEditor implements ActionListener {
     JFrame frame; //creates basic frame
@@ -98,7 +98,7 @@ public class TextEditor implements ActionListener {
                 File file = new File(fileChooser.getSelectedFile().getAbsolutePath()+".txt");  //new file gets created along with the path of the file in the system
                 String filePath = file.getPath();                   // contains file path
                 try{
-                    BufferedWriter outfile = null;                              // initializing buffered system
+                    BufferedWriter outfile = null;                              // initializing buffered system with try and catch method so that function doesn't exit if gets any error
                     outfile = new BufferedWriter(new FileWriter(file));         // creates a way to send the content to the new file 
                     textArea.write(outfile);                                    // starts sending the content in buffered (pieces) manner to the newl created file
                     outfile.close();                                            // close the buffer once all the data is transfered to the new file 
