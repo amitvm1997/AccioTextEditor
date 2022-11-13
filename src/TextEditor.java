@@ -62,14 +62,14 @@ public class TextEditor implements ActionListener {
         edit.add(selectAll);
         edit.add(close);
 
-        // Initializing a scroll panel if too ma text is written and setting the diemnsions of the scroll panel
-        JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        JPanel panel = new JPanel();
+        // Initializing a scroll panel if too many text is written and setting the dimensions of the scroll panel
+        JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); //create a scroll panel including text area, vertical scroll bar and horizontal scroll bar 
+        JPanel panel = new JPanel();    // creates a panel
 
-        panel.setBorder(new EmptyBorder(5, 5, 5, 5));
-        panel.setLayout(new BorderLayout(0, 0));
+        panel.setBorder(new EmptyBorder(5, 5, 5, 5));    // set the borders of the panel
+        panel.setLayout(new BorderLayout(0, 0));    //set the layout of the panel
 
-        panel.add(scrollPane);
+        panel.add(scrollPane);    //scrollbar added panel
         frame.add(panel); //panel added to frame
 
 
