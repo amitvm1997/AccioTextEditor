@@ -90,39 +90,39 @@ public class TextEditor implements ActionListener {
             TextEditor newTextEditor = new TextEditor(); // creates new file
         }
         if(e.getSource()==saveFile){
-            JFileChooser fileChooser = new JFileChooser("C:");
-            fileChooser.setApproveButtonText("Save");
-            int chooseOption = fileChooser.showSaveDialog(null);
+            JFileChooser fileChooser = new JFileChooser("C:");              //created a dialog box for saving the content in new file
+            fileChooser.setApproveButtonText("Save");                       // changes the button name from "approve" to "Save"
+            int chooseOption = fileChooser.showSaveDialog(null);            // it will contain the value of the file to be saved
 
-            if(chooseOption== JFileChooser.APPROVE_OPTION){
-                File file = new File(fileChooser.getSelectedFile().getAbsolutePath()+".txt");
-                String filePath = file.getPath();
+            if(chooseOption== JFileChooser.APPROVE_OPTION){                     // it will check whether we have clicked on "save" button or not
+                File file = new File(fileChooser.getSelectedFile().getAbsolutePath()+".txt");  //new file gets created along with the path of the file in the system
+                String filePath = file.getPath();                   // contains file path
                 try{
-                    BufferedWriter outfile = null;
-                    outfile = new BufferedWriter(new FileWriter(file));
-                    textArea.write(outfile);
-                    outfile.close();
-                }catch (Exception exception){
+                    BufferedWriter outfile = null;                              // initializing buffered system
+                    outfile = new BufferedWriter(new FileWriter(file));         // creates a way to send the content to the new file 
+                    textArea.write(outfile);                                    // starts sending the content in buffered (pieces) manner to the newl created file
+                    outfile.close();                                            // close the buffer once all the data is transfered to the new file 
+                }catch (Exception exception){                                   // exception case for try and catch method
                     System.out.println(exception);
                 }
             }
         }
         if(e.getSource()==openFile){
-            JFileChooser fileChooser = new JFileChooser("C:");
-            int chooseOption = fileChooser.showOpenDialog(null);
+            JFileChooser fileChooser = new JFileChooser("C:");              //created a dialog box for chosing the file to be opened
+            int chooseOption = fileChooser.showOpenDialog(null);            // it will contain the value of chosen file
 
-            if(chooseOption== JFileChooser.APPROVE_OPTION){
-                File file  = fileChooser.getSelectedFile();
-                String filePath = file.getPath();
+            if(chooseOption== JFileChooser.APPROVE_OPTION){                 // it will check whether we have clicked on "open" button or not
+                File file  = fileChooser.getSelectedFile();                 // this will help to open the selected file
+                String filePath = file.getPath();                           // this string contains the path of the file
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
-                    String intermediate = "", output = "";
-                    while((intermediate = bufferedReader.readLine())!=null){
-                        output += intermediate+ "\n";
+                    BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));     // it will start reading the contact under the file in buffered manner
+                    String intermediate = "", output = "";                                            // string created to print the content of the file and the output 
+                    while((intermediate = bufferedReader.readLine())!=null){                          // loop runs for ever line of the file until it is null 
+                        output += intermediate+ "\n";                                                 // output gets updated on ever loop and cursor moves to next line
                     }
-                    textArea.setText(output);
+                    textArea.setText(output);                                                           // text area will show the output of the selected file 
 
-                }catch (Exception exception){
+                }catch (Exception exception){                                                       // exception case for try and catch
                     System.out.println(exception);
                 }
             }
